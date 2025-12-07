@@ -1,0 +1,321 @@
+/* GitHub Dark Mode Inspiration */
+:root {
+  /* Primer Dark Variables */
+  --bg-canvas: #0d1117;
+  --bg-canvas-subtle: #161b22;
+  --bg-border: #30363d;
+  --text-main: #c9d1d9;
+  --text-muted: #8b949e;
+  --accent-blue: #58a6ff;
+  --accent-green: #238636;
+  /* Button green */
+  --accent-green-text: #3fb950;
+  --accent-orange: #d29922;
+
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  --border-radius: 6px;
+  --header-height: 60px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-main);
+  font-family: var(--font-stack);
+  margin: 0;
+  padding: 0;
+  /* Reset for full header */
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+/* Header imitating GitHub Navbar */
+#header-panel {
+  background-color: var(--bg-canvas-subtle);
+  border-bottom: 1px solid var(--bg-border);
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.panel-title {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panel-title::before {
+  /* Fake logo */
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: var(--text-main);
+  border-radius: 50%;
+}
+
+.comment {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+/* Main Layout: Sidebar + Content */
+.container {
+  display: grid;
+  grid-template-columns: 296px 1fr;
+  /* GitHub profile sidebar width */
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  align-items: start;
+}
+
+/* Elements */
+h1 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--text-main);
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  margin-top: 24px;
+  border-bottom: 1px solid var(--bg-border);
+  /* Underline for sections */
+  padding-bottom: 8px;
+  color: var(--text-main);
+}
+
+h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-main);
+}
+
+a {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  padding-left: 20px;
+  list-style-type: disc;
+  color: var(--text-muted);
+}
+
+ul li {
+  margin-bottom: 4px;
+}
+
+/* "Card" Style for Repos/Skills */
+.panel {
+  /* Reset panel styles to be cleaner */
+  background: transparent;
+  border: none;
+  overflow: visible;
+}
+
+.repo-card {
+  background-color: var(--bg-canvas);
+  border: 1px solid var(--bg-border);
+  border-radius: var(--border-radius);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.repo-card h3 {
+  color: var(--accent-blue);
+  cursor: pointer;
+}
+
+.repo-card h3:hover {
+  text-decoration: underline;
+}
+
+/* Sidebar Styling (Bio) */
+#bio-panel {
+  grid-column: 1;
+  grid-row: span 4;
+  /* Tall sidebar */
+}
+
+.avatar-placeholder {
+  width: 296px;
+  height: 296px;
+  background-color: var(--bg-border);
+  /* Placeholder for PFP */
+  border-radius: 50%;
+  border: 1px solid var(--bg-border);
+  margin-bottom: 16px;
+}
+
+.profile-names {
+  margin-bottom: 16px;
+}
+
+.p-name {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  display: block;
+}
+
+.p-nickname {
+  font-size: 20px;
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: 24px;
+  display: block;
+}
+
+.bio-text {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.profile-details {
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.profile-details div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.profile-details svg,
+.profile-details i {
+  color: var(--text-muted);
+  width: 16px;
+  text-align: center;
+}
+
+/* Main Content Area */
+#psych-panel,
+#philo-panel,
+#skills-panel,
+#repos-panel,
+#pitch-panel {
+  grid-column: 2;
+  /* Resetting panel styling from previous theme */
+  border: none;
+  background: none;
+}
+
+/* Make "Readme" style container for text heavy blocks */
+.readme-container {
+  border: 1px solid var(--bg-border);
+  border-radius: var(--border-radius);
+  background-color: #0d1117;
+  /* Canvas */
+}
+
+.readme-header {
+  background-color: var(--bg-canvas-subtle);
+  border-bottom: 1px solid var(--bg-border);
+  padding: 8px 16px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-main);
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+.readme-body {
+  padding: 32px;
+  font-size: 16px;
+}
+
+/* Code Blocks */
+pre {
+  background-color: var(--bg-canvas-subtle);
+  padding: 16px;
+  border-radius: var(--border-radius);
+  border: none;
+  overflow: auto;
+  font-family: var(--font-mono);
+  font-size: 85%;
+}
+
+/* Status Bar logic - make it look like a footer now */
+#status-bar {
+  grid-column: span 2;
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid var(--bg-border);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  padding: 0 7px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  border: 1px solid var(--bg-border);
+  border-radius: 2em;
+  background-color: rgba(56, 139, 253, 0.1);
+  color: var(--accent-blue);
+  margin-right: 4px;
+}
+
+.tag.secure {
+  color: var(--accent-green-text);
+  background-color: rgba(46, 160, 67, 0.1);
+  border-color: rgba(46, 160, 67, 0.4);
+}
+
+/* Hiding the old "window controls" */
+.panel-controls {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    display: block;
+    /* Stack everything */
+  }
+
+  #bio-panel {
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--bg-border);
+    padding-bottom: 24px;
+  }
+
+  .avatar-placeholder {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-right: 16px;
+  }
+}
